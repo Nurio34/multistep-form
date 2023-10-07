@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Newsletter Signup Form</title>
+
+    <link rel="shortcut icon" href="./assets/images/favicon-32x32.png" type="image/x-icon">
+
+    <link rel="stylesheet" type="text/css" href="./css/style.min.css" >
+
+    <link rel="stylesheet" href="https://kit.fontawesome.com/b69fb5b7db.css" crossorigin="anonymous" >
+
+    <script src="https://kit.fontawesome.com/b69fb5b7db.js" crossorigin="anonymous" ></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Babylonica&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <meta name="description" content="NAME">
+    <meta name="keywords" content="NAME">
+    <meta name="author" content="Nuri Salih Ersoy">
+    <!-- <base href="127.0.0.1:5500/"> -->
+  </head>
+
+  <body id="home">
+
+    <div class="container">
+
+      <header>
+
+        <picture>
+          <source media="(min-width: 376px )" srcset="./assets/images/bg-sidebar-desktop.svg">
+          <img src="./assets/images/bg-sidebar-mobile.svg" alt="side image">
+        </picture>
+
+        <div class="indicator">
+
+          <div class="wrapper flex">
+            <p class="no active">1</p>
+            <div class="grid">
+              <p class="step">Step 1</p>
+              <p class="name">YOUR INFO</p>
+            </div>
+          </div>
+
+          <div class="wrapper flex">
+            <p class="no">2</p>
+            <div class="grid">
+              <p class="step">Step 2</p>
+              <p class="name">SELECT PLAN</p>
+            </div>
+          </div>
+
+          <div class="wrapper flex">
+            <p class="no">3</p>
+            <div class="grid">
+              <p class="step">Step 3</p>
+              <p class="name">ADD-ONS</p>
+            </div>
+          </div>
+
+          <div class="wrapper flex">
+            <p class="no">4</p>
+            <div class="grid">
+              <p class="step">Step 4</p>
+              <p class="name">SUMMARY</p>
+            </div>
+          </div>
+
+        </div>
+      </header>
+
+      <form>
+
+        <div class="step1 step hidden">
+
+          <h2>Personel Info</h2>
+          <p>Please provide your name,email adress and phone number.</p>
+
+          <div class="group">
+            <label for="nameInp">Name</label>
+            <input type="text" name="Name" id="nameInp">
+          </div>
+
+          <div class="group">
+            <label for="emailInp">Email Adress</label>
+            <input type="email" name="Email" id="emailInp">
+          </div>
+
+          <div class="group">
+            <label for="phoneInp">Phone Number</label>
+            <input type="tel" name="Phone" id="phoneInp">
+          </div>
+
+          <button class="pass1 nextBtn">Next Step</button>
+
+        </div>
+
+        <div class="step2 step hidden">
+          <h2>Select Your Plan</h2>
+          <p>You have the option of monthly or yearly biling</p>
+
+          <div class="flex">
+
+            <label  for="arcadeRadio" class="group">
+
+              <img src="./assets/images/icon-arcade.svg" alt="">
+              <p >Arcade</p>
+              <p class="price">$9/mo</p>
+              <input type="radio" name="Plan" id="arcadeRadio">
+
+            </label>
+  
+            <label for="advancedRadio" class="group">
+
+              <img src="./assets/images/icon-advanced.svg" alt="">
+              <p >Advanced</p>
+              <p class="price">$12/mo</p>
+              <input type="radio" name="Plan" id="advancedRadio">
+
+            </label>
+  
+            <label for="proRadio" class="group">
+
+              <img src="./assets/images/icon-pro.svg" alt="">
+              <p >Pro</p>
+              <p class="price">$15/mo</p>
+              <input type="radio" name="Plan" id="proRadio">
+
+            </label>
+
+          </div>
+
+          <div class="select-group">
+            <label for="monthRadio">Monthly</label>
+            <input type="radio" name="Monthly" id="monthRadio">
+            <span></span>
+            <label for="yearRadio">Yearly</label>
+            <input type="radio" name="Yearly" id="yearRadio">
+          </div>
+
+          <div class="btnGroup">
+            <button class="back1">Go Back</button>
+            <button class="pass2 nextBtn">Next Step</button>
+          </div>
+
+        </div>
+
+        <div class="step3 step ">
+          <h2>Pick add-ons</h2>
+          <p>Add-ons help enhance your gaming experience</p>
+
+          <div class="group">
+
+            <label for="onlineCheck">
+              <input type="checkbox" name="pickCheck" id="onlineCheck">
+              <div class="wrapper">
+                <h3>Online services</h3>
+                <p>Access to multiplayer games</p>
+              </div>
+              <div class="price">+$1/mo</div>
+            </label>
+
+            <label for="largerCheck">
+              <input type="checkbox" name="pickCheck" id="largerCheck">
+              <div class="wrapper">
+                <h3>Larger storage</h3>
+                <p>Extra 1TB of clod save</p>
+              </div>
+              <div class="price">+$2/mo</div>
+            </label>
+
+            <label for="customizableCheck">
+              <input type="checkbox" name="pickCheck" id="customizableCheck">
+              <div class="wrapper">
+                <h3>Customizable profile</h3>
+                <p>Custom theme on your profile</p>
+              </div>
+              <div class="price">+$2/mo</div>
+            </label>
+
+          </div>
+
+          <div class="btnGroup">
+            <button class="back2">Go Back</button>
+            <button class="pass3 nextBtn">Next Step</button>
+          </div>
+
+        </div>
+
+        <div class="step4 step hidden">
+          <h2>Finishing up</h2>
+          <p>Double-check everything looks OK before confirming</p>
+
+          <div class="group">
+            
+            <div class="wrapper confirm1">
+              <div class="title">
+                <p>Arcade (Monthly)</p>
+                <button class="changeBtn">Change</button>
+              </div>
+              <div class="price">$9/mo</div>
+            </div>
+            
+            <div class="wrapper confirm2">
+              <div class="wrap">
+                <div class="title">
+                  <p>Online service</p>
+                </div>
+                <div class="price">+$1/mo</div>
+              </div>
+
+              <div class="wrap">
+                <div class="title">
+                  <p>Larger Storage</p>
+                </div>
+                <div class="price">+$2/mo</div>
+              </div>
+            </div>
+
+            <div class="wrapper confirm3">
+              <div class="title">
+                <p>Total (per month)</p>
+              </div>
+              <div class="price">+$12/mo</div>
+            </div>
+
+          </div>
+
+          <div class="btnGroup">
+            <button class="back3">Go Back</button>
+            <button class="confirm nextBtn">Confirm</button>
+          </div>
+
+        </div>
+
+      </form>
+
+    </div>
+
+
+    <!-- <details class="guide-links">
+      <summary>Guides</summary>
+      <nav>
+        <ul>
+          <li>
+            <a href="./guides/html/semantic.html" target="_top">Semantic</a>
+          </li>
+          <li><a href="./guides/html/seo.html" target="_top">SEO</a></li>
+          <li><a href="./guides/html/git.html" target="_top">GIT</a></li>
+          <li><a href="./guides/html/events.html" target="_top">Events</a></li>
+        </ul>
+      </nav>
+    </details> -->
+  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./script/script.js"></script>
+</html>

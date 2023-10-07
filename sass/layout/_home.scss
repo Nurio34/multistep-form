@@ -1,0 +1,236 @@
+body#home {
+  background-color: rgb(216, 216, 255);
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    
+    header {
+      position: relative;
+      display: inline-block;
+  
+      picture {
+        display: inline-block;
+      }
+  
+      .indicator {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%,-50%);
+  
+        display: flex;
+        gap: 1rem;
+  
+        .wrapper.flex {
+          display: flex;
+          gap: 1rem;
+  
+          .no {
+            width: 2rem;
+            aspect-ratio: 1;
+            border: 1px solid white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 2;
+            font-weight: 700;
+
+            &.active {
+              background-color: rgb(119, 173, 255);
+            }
+          }
+
+          .grid {
+            display: none;
+          }
+        }
+      }
+    }
+  
+    form {
+      display: grid;
+      place-content: center;
+      padding: 3rem;
+      background-color: white;
+
+      .step {
+        display: grid;
+        gap: 1rem;
+
+        &.hidden {
+          position: absolute;
+          z-index: -1;
+          opacity: 0;
+          transition: 0.2s;
+        }
+        
+        .group {
+          display: grid;
+        }
+
+        .btnGroup {
+          display: flex;
+          justify-content: space-between;
+
+          .back1 {
+            background-color: transparent;
+            border: none;
+            outline: none;
+          }
+        }
+
+        .nextBtn {
+          justify-self: end;
+          padding: 0.3rem 0.6rem;
+        }
+      }
+
+      .step2 {
+        
+        .flex {
+          display: flex;
+          gap: 1rem;
+
+          .group {
+            padding-block: 2rem;
+            padding-inline: 1rem 4rem;
+            border: 1px solid gray;
+            border-radius: 2rem;
+            justify-self: start;
+            width: 150px;
+
+            &.checked {
+              background-color: peachpuff;
+            }
+
+            label {
+              padding-block-start: 2rem;
+            }
+  
+            input {
+              appearance: none;
+            }
+          }
+        }
+
+        .select-group {
+          justify-self: center;
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          input {
+            appearance: none;
+            position: absolute;
+          }
+
+          span {
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            border: 1px solid black;
+            border-radius: 50vw;
+          }
+        }
+      }
+
+      .step3 {
+
+        .group {
+          display: grid;
+          gap: 1rem;
+
+          label {
+            display: grid;
+            grid-template-columns: 1fr 8fr 1fr;
+            border: 1px solid black;
+            padding-block: 1rem;
+            padding-inline-end: 1rem;
+
+            &.checked {
+              background-color: rgb(156, 156, 252);
+            }
+
+            input {
+              grid-column: 1/2;
+              align-self: center;
+            }
+
+            .wrapper {
+              grid-column: 2/3;
+            }
+
+            .price {
+              grid-column: 3/4;
+              align-self: center;
+            }
+          }
+        }
+      }
+
+      .step4 {
+
+        .group {
+
+          .wrapper {
+            display: flex;
+            justify-content: space-between;
+            background-color: lightgray;
+            border-bottom: 2px solid black;
+
+            .changeBtn {
+              background-color: transparent;
+              border: none;
+              outline: none;
+              font-size: 0.8rem;
+              color: gray;
+            }
+
+            .price {
+              align-self: center;
+            }
+          }
+
+          .wrapper.confirm2 {
+            
+            display: grid;
+            justify-content: stretch;
+
+            .wrap {
+              display: flex;
+              justify-content: space-between;
+            }
+          }
+        }
+      }
+
+    }
+  }
+  
+  
+  
+  details.guide-links {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      padding: 1rem;
+      background-color: rgb(253, 31, 253);
+      cursor: pointer;
+  
+      nav {
+
+        ul {
+
+          li {
+
+            a {
+              color: white;
+              transition: 0.2s;
+  
+              &:hover {
+                transform: scale(1.1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }

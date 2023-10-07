@@ -1,0 +1,51 @@
+
+@media (min-width:750px) {
+
+    body#home {
+
+        .container {
+            flex-direction: row;
+            
+            header {
+      
+                picture {
+                  
+                }
+            
+                .indicator {
+                  position: absolute;
+                  top: 0%; left: 0%;
+                  transform: translate(25%,25%);
+            
+                  display: grid;
+                  gap: 1rem;
+            
+                  .wrapper.flex {
+                    display: flex;
+                    gap: 1rem;
+                    color: white;
+      
+                    .no {
+                      width: 2rem;
+                      aspect-ratio: 1;
+                      border: 1px solid white;
+                      border-radius: 50%;
+                      text-align: center;
+                      line-height: 2;
+                      font-weight: 700;
+                      align-self: center;
+                    }
+                    .grid {
+                      display: block;
+      
+                      .name {
+                          width: max-content;
+                          font-weight: 700;
+                      }
+                    }
+                  }
+                }
+              }
+        }
+    }
+}
