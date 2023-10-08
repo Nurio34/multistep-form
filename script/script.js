@@ -10,11 +10,13 @@ let fullname, email, phone
 
 const step2 = document.querySelector(".step2")
 const pass2Btn = document.querySelector(".pass2")
-const planRadios = document.querySelectorAll("input[name='Plan']")
+const planRadios = document.querySelectorAll(".step2 label.group")
+console.log(planRadios);
 let plan, price
 
 const step3 = document.querySelector(".step3")
 const pickCheck = step3.querySelectorAll("input[name='pickCheck']")
+
 let service;
 let totalPickPrice = 0
 let arr = [], newArr =[];
@@ -44,15 +46,34 @@ const step4 = document.querySelector(".step4")
         const radioBtn = e.target
 
         const wrapperEls = step2.querySelectorAll(".group")
-        wrapperEls.forEach(el=>el.classList.remove("checked"))
+        wrapperEls.forEach(el=>el.classList.remove("selected"))
 
-        radioBtn.parentElement.classList.add("checked")
-
+        radioBtn.parentElement.classList.add("selected")
+        console.log(radioBtn);
         plan = `monthly`
 
         price = radioBtn.parentElement.querySelector(".price").textContent.slice(1,3).split("/")[0]
 
     }))
+
+    // same func for a11y
+    planRadios.forEach(btn=> btn.addEventListener("keydown",(e)=> {
+        if(e.key === " " || e.key === "Enter") {
+
+            const radioBtn = e.target.querySelector("input")                
+                console.log(radioBtn);
+            const wrapperEls = step2.querySelectorAll(".group")
+            wrapperEls.forEach(el=>el.classList.remove("selected"))
+    
+            radioBtn.parentElement.classList.add("selected")
+    
+            plan = `monthly`
+    
+            price = radioBtn.parentElement.querySelector(".price").textContent.slice(1,3).split("/")[0]
+            
+        }
+    }))
+    // 
 
     pass2Btn.addEventListener("click",(e)=> {
         e.preventDefault()
@@ -88,7 +109,7 @@ const step4 = document.querySelector(".step4")
                 })
             }
 
-        console.log({arr,newArr});
+        
     }))
 
     pass3Btn.addEventListener("click",e=> {
@@ -109,4 +130,4 @@ const planEl = confirm1.querySelector("p")
 const priceEl = confirm1.querySelector(".price")
     priceEl.innerText = `$${price}/mo`
 
-console.log(planEl);
+

@@ -351,6 +351,7 @@ body#home .container form .step.hidden {
   z-index: -1;
   opacity: 0;
   transition: 0.2s;
+  visibility: hidden;
 }
 body#home .container form .step h2 {
   color: var(--Marineblue);
@@ -428,7 +429,7 @@ body#home .container form .step .nextBtn {
   color: var(--Alabaster);
   cursor: pointer;
 }
-body#home .container form .step .nextBtn:hover {
+body#home .container form .step .nextBtn:hover, body#home .container form .step .nextBtn:focus {
   filter: brightness(1.7);
 }
 body#home .container form .step2 .flex {
