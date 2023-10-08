@@ -415,10 +415,15 @@ body#home .container form .step .btnGroup .back {
   outline: none;
   color: var(--Coolgray);
   font-weight: 700;
+  align-self: center;
 }
 body#home .container form .step .btnGroup .back:hover {
   cursor: pointer;
   color: var(--Marineblue);
+}
+body#home .container form .step .btnGroup .back:focus {
+  outline: 1px solid black;
+  outline-offset: 3px;
 }
 body#home .container form .step .nextBtn {
   justify-self: end;
@@ -446,7 +451,10 @@ body#home .container form .step2 .flex label.group {
   column-gap: 1rem;
   padding: 1rem;
 }
-body#home .container form .step2 .flex label.group:hover {
+body#home .container form .step2 .flex label.group:focus-visible {
+  outline: none;
+}
+body#home .container form .step2 .flex label.group:hover, body#home .container form .step2 .flex label.group:focus {
   cursor: pointer;
   border-color: var(--Purplishblue);
 }
@@ -498,6 +506,10 @@ body#home .container form .step2 .select-group label {
 body#home .container form .step2 .select-group label.selected {
   color: var(--Marineblue);
 }
+body#home .container form .step2 .select-group label:focus {
+  outline: 1px solid black;
+  outline-offset: 3px;
+}
 body#home .container form .step2 .select-group input {
   appearance: none;
   position: absolute;
@@ -511,6 +523,11 @@ body#home .container form .step2 .select-group .wrapper {
   background-color: var(--Marineblue);
   cursor: pointer;
   position: relative;
+}
+body#home .container form .step2 .select-group .wrapper:focus {
+  outline: 1px solid black;
+  outline-offset: 3px;
+  outline-offset: 3px;
 }
 body#home .container form .step2 .select-group .wrapper .toggle {
   display: inline-block;

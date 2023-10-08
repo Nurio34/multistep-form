@@ -186,10 +186,16 @@ body#home {
             outline: none;
             color: var(--Coolgray);
             font-weight: 700;
-
+            align-self: center;
+            
             &:hover {
               cursor: pointer;
               color: var(--Marineblue);
+            }
+
+            &:focus {
+              outline: 1px solid black;
+              outline-offset: 3px;
             }
           }
         }
@@ -226,7 +232,11 @@ body#home {
             column-gap: 1rem;
             padding: 1rem;
 
-            &:hover {
+            &:focus-visible {
+              outline: none;
+            }
+            &:hover,
+            &:focus {
               cursor: pointer;
               border-color: var(--Purplishblue);
             }
@@ -288,6 +298,11 @@ body#home {
             &.selected {
               color: var(--Marineblue);
             }
+
+            &:focus {
+              outline: 1px solid black;
+              outline-offset: 3px;
+            }
           }
           input {
             appearance: none;
@@ -302,8 +317,13 @@ body#home {
             border-radius: 50vw;
             background-color: var(--Marineblue);
             cursor: pointer;
-
             position: relative;
+
+            &:focus {
+              outline: 1px solid black;
+              outline-offset: 3px;
+              outline-offset: 3px;
+            }
 
             .toggle {
               display: inline-block;

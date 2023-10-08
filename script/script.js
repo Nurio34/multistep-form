@@ -10,9 +10,11 @@ let fullname, email, phone
 
 const step2 = document.querySelector(".step2")
 const pass2Btn = document.querySelector(".pass2")
-const planRadios = document.querySelectorAll(".step2 label.group")
-console.log(planRadios);
+const planRadios = step2.querySelectorAll("label.group")
 let plan, price
+const selectRadios = step2.querySelectorAll(".select-group label")
+const toggleBtn = step2.querySelector(".toggle")
+let timeplan
 
 const step3 = document.querySelector(".step3")
 const pickCheck = step3.querySelectorAll("input[name='pickCheck']")
@@ -42,6 +44,8 @@ const step4 = document.querySelector(".step4")
         
     })
 
+
+    //todo:     STEP2 STARTS HERE ////////////////
     planRadios.forEach(btn=> btn.addEventListener("click",(e)=> {
         const radioBtn = e.target
 
@@ -49,7 +53,6 @@ const step4 = document.querySelector(".step4")
         wrapperEls.forEach(el=>el.classList.remove("selected"))
 
         radioBtn.parentElement.classList.add("selected")
-        console.log(radioBtn);
         plan = `monthly`
 
         price = radioBtn.parentElement.querySelector(".price").textContent.slice(1,3).split("/")[0]
@@ -60,20 +63,33 @@ const step4 = document.querySelector(".step4")
     planRadios.forEach(btn=> btn.addEventListener("keydown",(e)=> {
         if(e.key === " " || e.key === "Enter") {
 
-            const radioBtn = e.target.querySelector("input")                
-                console.log(radioBtn);
+            const radioBtn = e.target.querySelector("input") 
+            radioBtn.checked = true 
+
             const wrapperEls = step2.querySelectorAll(".group")
-            wrapperEls.forEach(el=>el.classList.remove("selected"))
+                wrapperEls.forEach(el=>el.classList.remove("selected"))
     
-            radioBtn.parentElement.classList.add("selected")
+                radioBtn.parentElement.classList.add("selected")
     
             plan = `monthly`
     
             price = radioBtn.parentElement.querySelector(".price").textContent.slice(1,3).split("/")[0]
+            console.log(price);
             
         }
     }))
     // 
+
+    selectRadios.forEach(btn=>btn.addEventListener("click",e=>{
+        console.log(e.target.htmlFor === "monthRadio");
+        if(e.target.htmlFor === "monthRadio") {
+            console.log("toggle left");
+        }else {
+            console.log("toggle right");
+        }
+    }))
+
+
 
     pass2Btn.addEventListener("click",(e)=> {
         e.preventDefault()
@@ -86,6 +102,10 @@ const step4 = document.querySelector(".step4")
         indicators[2].classList.add("active")
         }
     })
+    //todo:     STEP2 ENDS HERE ///////////////////
+
+
+
 
     pickCheck.forEach(btn=> btn.addEventListener("click",e=>{
         const checkBtn = e.target
