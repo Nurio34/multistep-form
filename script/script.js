@@ -14,6 +14,7 @@ const planRadios = step2.querySelectorAll("label.group")
 let plan, price
 const selectRadios = step2.querySelectorAll(".select-group label")
 const toggleBtn = step2.querySelector(".toggle")
+const toggleWrapper = step2.querySelector(".select-group .wrapper")
 let timeplan
 
 const step3 = document.querySelector(".step3")
@@ -58,8 +59,7 @@ const step4 = document.querySelector(".step4")
         price = radioBtn.parentElement.querySelector(".price").textContent.slice(1,3).split("/")[0]
 
     }))
-
-    // same func for a11y
+    // SAME FUNCTİONALITY FOR A11Y
     planRadios.forEach(btn=> btn.addEventListener("keydown",(e)=> {
         if(e.key === " " || e.key === "Enter") {
 
@@ -81,15 +81,75 @@ const step4 = document.querySelector(".step4")
     // 
 
     selectRadios.forEach(btn=>btn.addEventListener("click",e=>{
-        console.log(e.target.htmlFor === "monthRadio");
-        if(e.target.htmlFor === "monthRadio") {
-            console.log("toggle left");
+        const label = e.target
+        const input = label.nextElementSibling
+
+        if(label.htmlFor === "monthRadio") {
+            toggleBtn.classList.remove("yearly")
         }else {
-            console.log("toggle right");
+            toggleBtn.classList.add("yearly")
+        }
+        timeplan = label.innerText
+    }))
+    // SAME FUNCTİONALITY FOR A11Y
+    selectRadios.forEach(btn=>btn.addEventListener("keydown",e=>{
+        if(e.key === " " || e.key === "Enter") {
+            const label = e.target
+            console.log(label);
+            const input = label.nextElementSibling
+
+                if(label.htmlFor === "monthRadio") {
+                    input.checked = true
+                    toggleBtn.classList.remove("yearly")
+                }else {
+                    toggleBtn.classList.add("yearly")
+                    input.checked = true
+                }
+                timeplan = label.innerText
         }
     }))
+    ///
 
+    toggleWrapper.addEventListener("click",e=>{
+        
+        if(toggleBtn.classList.contains("yearly")) {
+                toggleBtn.classList.remove("yearly")
 
+            const input = toggleBtn.parentNode.previousElementSibling
+                input.checked= true
+                timeplan = input.previousElementSibling.innerText
+
+        }else {
+                toggleBtn.classList.add("yearly")
+
+            const input = toggleBtn.parentNode.nextElementSibling.nextElementSibling
+                input.checked = true
+                timeplan = input.previousElementSibling.innerText
+        }
+        console.log(timeplan);
+    })
+    // SAME FUNCTİONALITY FOR A11Y
+    toggleWrapper.addEventListener("keydown",e=>{
+        if(e.key === " " || e.key === "Enter") {
+
+            if(toggleBtn.classList.contains("yearly")) {
+                toggleBtn.classList.remove("yearly")
+
+            const input = toggleBtn.parentNode.previousElementSibling
+                input.checked= true
+                timeplan = input.previousElementSibling.innerText
+
+        }else {
+                toggleBtn.classList.add("yearly")
+
+            const input = toggleBtn.parentNode.nextElementSibling.nextElementSibling
+                input.checked = true
+                timeplan = input.previousElementSibling.innerText
+        }
+        console.log(timeplan);
+        }
+    })
+    ///
 
     pass2Btn.addEventListener("click",(e)=> {
         e.preventDefault()
@@ -102,6 +162,7 @@ const step4 = document.querySelector(".step4")
         indicators[2].classList.add("active")
         }
     })
+    //! Timplan toggleyaınca 2 months free yazısının gözükmesini ayarla
     //todo:     STEP2 ENDS HERE ///////////////////
 
 
