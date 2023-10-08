@@ -2,7 +2,6 @@
 const step1 = document.querySelector(".step1")
 
 const p = step1.querySelector("p") 
-console.log(p);
 
 const nameInp = document.querySelector("#nameInp")
 const emailInp = document.querySelector("#emailInp")
@@ -15,13 +14,16 @@ const pass1Btn = document.querySelector(".pass1")
 
 let fullname, email, phone
 
-p.focus()
+const notificationEl = step1.querySelector(".notification")
 
 
 
     pass1Btn.addEventListener("click",(e)=>{
 
         e.preventDefault()
+
+        notificationEl.ariaLive = "polite"
+        let message,nameMsg,emailMsg,phoneMsg
 
         fullname = nameInp.value.trim()
         email = emailInp.value.trim()
@@ -35,14 +37,17 @@ p.focus()
         if(!fullname) {
             adjustClass(nameInp,"invalid")
             adjustMsg(nameInp,"invalidMsg visible","This field is required")
+            nameMsg = "You forgot to write your name. "
 
         }else if(!nameRegexp.test(fullname)) {
             adjustClass(nameInp,"invalid")
             adjustMsg(nameInp,"invalidMsg visible","Please fill in correct form")
+            nameMsg = "Your name doesn't match the format. "
 
         }else {
-                adjustClass(nameInp,"")
-                adjustMsg(nameInp,"invalidMsg")
+            adjustClass(nameInp,"")
+            adjustMsg(nameInp,"invalidMsg")
+            nameMsg = ""
         }
 
 
@@ -50,14 +55,17 @@ p.focus()
         if(!email) {
             adjustClass(emailInp,"invalid")
             adjustMsg(emailInp,"invalidMsg visible","This field is required")
+            emailMsg = "You forgot to write your email. "
 
         }else if(!emailRegexp.test(email)) {
             adjustClass(emailInp,"invalid")
             adjustMsg(emailInp,"invalidMsg visible","Please fill in correct form")
+            emailMsg = "Your email doesn't match the format. "
 
         } else {
             adjustClass(emailInp,"")
             adjustMsg(emailInp,"invalidMsg")
+            emailMsg = ""
         }
 
 
@@ -65,15 +73,22 @@ p.focus()
         if(!phone) {
             adjustClass(phoneInp,"invalid")
             adjustMsg(phoneInp,"invalidMsg visible","This field is required")
+            phoneMsg= "You forgot to write your phone number."
 
         }else if(!phoneRegexp.test(phone)) {
             adjustClass(phoneInp,"invalid")
             adjustMsg(phoneInp,"invalidMsg visible","Please fill in correct form")
+            phoneMsg= "Your phone number doesn't match the format. "
 
         } else {
             adjustClass(phoneInp,"")
             adjustMsg(phoneInp,"invalidMsg")
+            phoneMsg = ""
         }
+
+        message = nameMsg + emailMsg + phoneMsg
+        notificationEl.innerText = message
+        console.log(notificationEl);
 
         if([...inputEls].every(el => !el.classList.contains("invalid"))) {
             step1.classList.add("hidden")

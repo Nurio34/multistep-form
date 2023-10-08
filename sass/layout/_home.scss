@@ -40,6 +40,7 @@ body#home {
   .container {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     
     header {
       position: relative;
@@ -213,6 +214,12 @@ body#home {
           &:focus {
             filter: brightness(1.7);
           }
+        }
+
+        .notification {
+          background-color: yellow;
+          position: absolute;
+          bottom: 0; right: 0; transform: translateX(1000%);
         }
       }
 
