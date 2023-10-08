@@ -1,13 +1,6 @@
 
 const indicators = document.querySelectorAll(".indicator .wrapper .no")
 
-const pass1Btn = document.querySelector(".pass1")
-const step1 = document.querySelector(".step1")
-const nameInp = document.querySelector("#nameInp")
-const emailInp = document.querySelector("#emailInp")
-const phoneInp = document.querySelector("#phoneInp")
-let fullname, email, phone
-
 const step2 = document.querySelector(".step2")
 const pass2Btn = document.querySelector(".pass2")
 const planRadios = step2.querySelectorAll("label.group")
@@ -29,21 +22,7 @@ const step4 = document.querySelector(".step4")
 
 
 
-    pass1Btn.addEventListener("click",(e)=>{
-        e.preventDefault()
-        fullname = nameInp.value
-        email = emailInp.value
-        phone = phoneInp.value
 
-        if(fullname && email && phone) {
-            step1.classList.add("hidden")
-            step2.classList.remove("hidden")
-    
-            indicators[0].classList.remove("active")
-            indicators[1].classList.add("active")
-        }
-        
-    })
 
 
     //todo:     STEP2 STARTS HERE ////////////////
