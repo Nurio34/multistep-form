@@ -1,6 +1,9 @@
 
 const step1 = document.querySelector(".step1")
 
+const p = step1.querySelector("p") 
+console.log(p);
+
 const nameInp = document.querySelector("#nameInp")
 const emailInp = document.querySelector("#emailInp")
 const phoneInp = document.querySelector("#phoneInp")
@@ -11,6 +14,8 @@ const invalidMsgEls = step1.querySelectorAll(".invalidMsg")
 const pass1Btn = document.querySelector(".pass1")
 
 let fullname, email, phone
+
+p.focus()
 
 
 
