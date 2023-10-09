@@ -76,7 +76,7 @@
 
       <form role="form">
 
-        <div class="step1 step hidden">
+        <div class="step1 step">
 
           <h2>Personel Info</h2>
           <p aria-live="polite">Please provide your name,email adress and phone number.</p>
@@ -108,7 +108,7 @@
           <p class="notification"></p>
         </div>
 
-        <div class="step2 step ">
+        <div class="step2 step hidden">
           <h2 id="step2">Select Your Plan</h2>
           <p>You have the option of monthly or yearly biling</p>
 
@@ -123,10 +123,10 @@
             >
 
               <img src="./assets/images/icon-arcade.svg" alt="">
-              <p id="arcade">Arcade</p>
+              <p id="arcade" class="plan">Arcade</p>
               <p class="price">$9/mo</p>
               <input tabindex="-1" type="radio" name="Plan" id="arcadeRadio"
-              aria-hidden="true"
+
               >
               <p class="free">2 months free</p>
 
@@ -139,10 +139,10 @@
             >
 
               <img src="./assets/images/icon-advanced.svg" alt="">
-              <p id="advanced">Advanced</p>
+              <p id="advanced" class="plan">Advanced</p>
               <p class="price">$12/mo</p>
               <input tabindex="-1" type="radio" name="Plan" id="advancedRadio"
-              aria-hidden="true"
+
               >
               <p class="free">2 months free</p>
 
@@ -155,10 +155,10 @@
             >
 
               <img src="./assets/images/icon-pro.svg" alt="">
-              <p id="pro">Pro</p>
+              <p id="pro" class="plan">Pro</p>
               <p class="price">$15/mo</p>
               <input tabindex="-1" type="radio" name="Plan" id="proRadio"
-              aria-hidden="true"
+
               >
               <p class="free">2 months free</p>
 
@@ -175,7 +175,6 @@
             tabindex="0"
             >Monthly</label>
             <input tabindex="-1" type="radio" name="Timeplan" id="monthRadio"
-            aria-hidden="true"
             >
 
             <span class="wrapper">
@@ -187,7 +186,6 @@
             tabindex="-1"
             >Yearly</label>
             <input tabindex="-1" type="radio" name="Timeplan" id="yearRadio"
-            aria-hidden="true"
             >
 
           </div>
@@ -205,8 +203,10 @@
 
           <div class="group">
 
-            <label for="onlineCheck">
-              <input type="checkbox" name="pickCheck" id="onlineCheck">
+            <label for="onlineCheck" class="pickLabel">
+              <input type="checkbox" name="pickCheck" id="onlineCheck"
+              tabindex="0"
+              >
               <div class="wrapper">
                 <h3>Online services</h3>
                 <p>Access to multiplayer games</p>
@@ -214,8 +214,10 @@
               <div class="price">+$1/mo</div>
             </label>
 
-            <label for="largerCheck">
-              <input type="checkbox" name="pickCheck" id="largerCheck">
+            <label for="largerCheck" class="pickLabel">
+              <input type="checkbox" name="pickCheck" id="largerCheck"
+              tabindex="-1"
+              >
               <div class="wrapper">
                 <h3>Larger storage</h3>
                 <p>Extra 1TB of clod save</p>
@@ -223,8 +225,10 @@
               <div class="price">+$2/mo</div>
             </label>
 
-            <label for="customizableCheck">
-              <input type="checkbox" name="pickCheck" id="customizableCheck">
+            <label for="customizableCheck" class="pickLabel">
+              <input type="checkbox" name="pickCheck" id="customizableCheck"
+              tabindex="-1"
+              >
               <div class="wrapper">
                 <h3>Customizable profile</h3>
                 <p>Custom theme on your profile</p>
@@ -304,7 +308,7 @@
     </div>
 
 
-    <details class="guide-links">
+    <!-- <details class="guide-links">
       <summary>Guides</summary>
       <nav>
         <ul>
@@ -316,7 +320,7 @@
           <li><a href="./guides/html/events.html" target="_top">Events</a></li>
         </ul>
       </nav>
-    </details>
+    </details> -->
   </body>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

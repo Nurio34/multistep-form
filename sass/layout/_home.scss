@@ -368,14 +368,20 @@ body#home {
             padding-block: 1rem;
             padding-inline-end: 1rem;
 
-            &:hover {
+            
+            &:hover,
+            &.focus {
               cursor: pointer;
               border: 1px solid var(--Purplishblue);
+            }
+            &:focus-visible {
+              outline: none;
             }
 
             &.selected {
               border: 1px solid var(--Purplishblue);
-              background-color: var(--Magnolia);            }
+              background-color: var(--Magnolia);            
+            }
 
             input {
               grid-column: 1/2;
@@ -394,6 +400,11 @@ body#home {
                 position: absolute;
                 top: 0; left: 0;
               }
+              
+              &:focus-visible{
+                outline: none;
+              }
+
             }
 
             .wrapper {

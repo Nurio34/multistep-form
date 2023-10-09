@@ -21,6 +21,8 @@ const pass2Btn = document.querySelector(".pass2")
             planRadios.forEach(el=>el.classList.remove("selected"))
             radioBtn.parentElement.classList.add("selected")
         
+        plan = radioBtn.parentElement.querySelector(".plan").innerText
+            console.log(radioBtn);
         price = radioBtn.parentElement.querySelector(".price").textContent.slice(1,3).split("/")[0]
 
     }))
@@ -211,7 +213,8 @@ const pass2Btn = document.querySelector(".pass2")
 
 //todo: ////////////////////////////////////////////////////////
 
-    pass2Btn.addEventListener("click",()=> {
+    pass2Btn.addEventListener("click",e=> {
+        e.preventDefault()
 
         if(price && timeplan) {
             step2.classList.add("hidden")
@@ -219,7 +222,6 @@ const pass2Btn = document.querySelector(".pass2")
 
             indicators[1].classList.remove("active")
             indicators[2].classList.add("active")
-                console.log({price,timeplan});
-        }
-            
+                console.log({plan,price,timeplan});
+        } 
     })

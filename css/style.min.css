@@ -565,9 +565,12 @@ body#home .container form .step3 .group label {
   padding-block: 1rem;
   padding-inline-end: 1rem;
 }
-body#home .container form .step3 .group label:hover {
+body#home .container form .step3 .group label:hover, body#home .container form .step3 .group label.focus {
   cursor: pointer;
   border: 1px solid var(--Purplishblue);
+}
+body#home .container form .step3 .group label:focus-visible {
+  outline: none;
 }
 body#home .container form .step3 .group label.selected {
   border: 1px solid var(--Purplishblue);
@@ -590,6 +593,9 @@ body#home .container form .step3 .group label input::after {
   position: absolute;
   top: 0;
   left: 0;
+}
+body#home .container form .step3 .group label input:focus-visible {
+  outline: none;
 }
 body#home .container form .step3 .group label .wrapper {
   grid-column: 2/3;
