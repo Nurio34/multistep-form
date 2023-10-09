@@ -518,6 +518,10 @@ body#home .container form .step2 .select-group label:focus {
   outline: 1px solid black;
   outline-offset: 3px;
 }
+body#home .container form .step2 .select-group input {
+  appearance: none;
+  position: absolute;
+}
 body#home .container form .step2 .select-group .wrapper {
   display: inline-block;
   width: 40px;

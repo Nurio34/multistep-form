@@ -95,11 +95,12 @@ const pass2Btn = document.querySelector(".pass2")
 
 //todo: checking PLAN RADIOS with CLICK //
 
-    selectRadios.forEach(btn=>btn.addEventListener("click",e=>{
-        const label = e.target
-        const input = label.nextElementSibling
+    selectRadios.forEach(radioBtn=>radioBtn.addEventListener("click",e=>{
 
-        if(label.htmlFor === "monthRadio") {
+        const radioBtn = e.target
+        const input = radioBtn.nextElementSibling
+
+        if(radioBtn.htmlFor === "monthRadio") {
             toggleBtn.classList.remove("yearly")
             step2.querySelectorAll(".free").forEach(el => el.classList.remove("visible"))
 
@@ -108,8 +109,8 @@ const pass2Btn = document.querySelector(".pass2")
             step2.querySelectorAll(".free").forEach(el => el.classList.add("visible"))
 
         }
-        timeplan = label.innerText
-        console.log(timeplan);
+        timeplan = radioBtn.innerText
+    
     }))
 
 //todo: ////////////////////////////////////////////////////////
@@ -155,7 +156,7 @@ const pass2Btn = document.querySelector(".pass2")
         const currentBtn = e.target
         timeplan = currentBtn.innerText
 
-            currentBtn.nextElementSibling.checked = true
+            currentBtn.nextElementSibling.checked = true // input radio checked
 
             selectRadios.forEach(radioBtn => {
                 radioBtn.ariaChecked = "false"
@@ -222,43 +223,3 @@ const pass2Btn = document.querySelector(".pass2")
         }
             
     })
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-pass2Btn.addEventListener("click",(e)=> {
-    e.preventDefault()
-
-    if(plan && price) {
-    step2.classList.add("hidden")
-    step3.classList.remove("hidden")
-
-    indicators[1].classList.remove("active")
-    indicators[2].classList.add("active")
-    }
-})
-//! Timplan toggleyaınca 2 months free yazısının gözükmesini ayarla
