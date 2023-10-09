@@ -274,7 +274,7 @@ body#home {
 
             p.free {
               grid-row: 3/4;
-              display: block;
+              display: none;
               color: var(--Marineblue);
               font-size: calc(var(--fs-1)*0.7);
               font-weight: var(--fw-3);

@@ -1,8 +1,6 @@
 
 const step1 = document.querySelector(".step1")
 
-const p = step1.querySelector("p") 
-
 const nameInp = document.querySelector("#nameInp")
 const emailInp = document.querySelector("#emailInp")
 const phoneInp = document.querySelector("#phoneInp")
@@ -88,7 +86,6 @@ const notificationEl = step1.querySelector(".notification")
 
         message = nameMsg + emailMsg + phoneMsg
         notificationEl.innerText = message
-        console.log(notificationEl);
 
         if([...inputEls].every(el => !el.classList.contains("invalid"))) {
             step1.classList.add("hidden")
@@ -96,8 +93,8 @@ const notificationEl = step1.querySelector(".notification")
 
             indicators[0].classList.remove("active")
             indicators[1].classList.add("active")
+                console.log({fullname,email,phone});
         }
-
     })
 
     

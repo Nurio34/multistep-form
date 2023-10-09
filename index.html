@@ -76,7 +76,7 @@
 
       <form role="form">
 
-        <div class="step1 step ">
+        <div class="step1 step hidden">
 
           <h2>Personel Info</h2>
           <p aria-live="polite">Please provide your name,email adress and phone number.</p>
@@ -105,39 +105,53 @@
 
           <button class="pass1 nextBtn">Next Step</button>
 
-          <p class="notification" aria-live="polite"></p>
+          <p class="notification"></p>
         </div>
 
-        <div class="step2 step hidden">
-          <h2>Select Your Plan</h2>
+        <div class="step2 step">
+          <h2 id="step2">Select Your Plan</h2>
           <p>You have the option of monthly or yearly biling</p>
 
-          <div class="flex">
+          <div class="flex"
+          aria-labelledby="step2"
+          role="radiogroup" >
 
-            <label  for="arcadeRadio" class="group" role="button" tabindex="0">
+            <label  for="arcadeRadio" class="group" 
+            role="radio" 
+            aria-labelledby="arcade" aria-checked="false"
+            tabindex="0"
+            >
 
               <img src="./assets/images/icon-arcade.svg" alt="">
-              <p >Arcade</p>
+              <p id="arcade">Arcade</p>
               <p class="price">$9/mo</p>
               <input tabindex="-1" type="radio" name="Plan" id="arcadeRadio">
               <p class="free">2 months free</p>
 
             </label>
   
-            <label for="advancedRadio" class="group" tabindex="0">
+            <label for="advancedRadio" class="group"
+            role="radio" 
+            aria-labelledby="advanced" aria-checked="false"
+            tabindex="-1"
+            >
 
               <img src="./assets/images/icon-advanced.svg" alt="">
-              <p >Advanced</p>
+              <p id="advanced">Advanced</p>
               <p class="price">$12/mo</p>
               <input tabindex="-1" type="radio" name="Plan" id="advancedRadio">
               <p class="free">2 months free</p>
 
             </label>
   
-            <label for="proRadio" class="group" tabindex="0">
+            <label for="proRadio" class="group"
+            role="radio" 
+            aria-labelledby="pro" aria-checked="false"
+            tabindex="-1"
+            >
 
               <img src="./assets/images/icon-pro.svg" alt="">
-              <p >Pro</p>
+              <p id="pro">Pro</p>
               <p class="price">$15/mo</p>
               <input tabindex="-1" type="radio" name="Plan" id="proRadio">
               <p class="free">2 months free</p>
@@ -146,14 +160,24 @@
 
           </div>
 
-          <div class="select-group">
-            <label for="monthRadio" tabindex="0">Monthly</label>
+          <div class="select-group"
+          role="radiogroup"
+          aria-label="select timeplan"
+          >
+            <label for="monthRadio"
+            role="radio"
+            tabindex="0">Monthly</label>
             <input tabindex="-1" type="radio" name="Timeplan" id="monthRadio">
-            <span class="wrapper" tabindex="0">
+
+            <span class="wrapper">
               <span class="toggle" ></span>
             </span>
-            <label for="yearRadio" tabindex="0">Yearly</label>
+
+            <label for="yearRadio"
+            role="radio"
+            tabindex="-1">Yearly</label>
             <input tabindex="-1" type="radio" name="Timeplan" id="yearRadio">
+
           </div>
 
           <div class="btnGroup">
