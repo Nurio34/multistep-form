@@ -123,6 +123,7 @@
                     }
         
                     p.free {
+                      grid-column: 1/-1;
                       grid-row: 7/8;
                       display: none;
         
