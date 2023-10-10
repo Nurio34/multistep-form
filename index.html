@@ -76,7 +76,7 @@
 
       <form role="form">
 
-        <div class="step1 step">
+        <div class="step1 step ">
 
           <h2>Personel Info</h2>
           <p aria-live="polite">Please provide your name,email adress and phone number.</p>
@@ -105,7 +105,6 @@
 
           <button class="pass1 nextBtn">Next Step</button>
 
-          <p class="notification"></p>
         </div>
 
         <div class="step2 step hidden">
@@ -119,14 +118,13 @@
             <label  for="arcadeRadio" class="group" 
             role="radio" 
             aria-checked="false"
-            tabindex="0"
             >
 
               <img src="./assets/images/icon-arcade.svg" alt="">
               <p id="arcade" class="plan">Arcade</p>
               <p class="price">$9/mo</p>
-              <input tabindex="-1" type="radio" name="Plan" id="arcadeRadio"
-
+              <input type="radio" name="Plan" id="arcadeRadio"
+              tabindex="0"
               >
               <p class="free">2 months free</p>
 
@@ -135,14 +133,13 @@
             <label for="advancedRadio" class="group"
             role="radio" 
             aria-checked="false"
-            tabindex="-1"
             >
 
               <img src="./assets/images/icon-advanced.svg" alt="">
               <p id="advanced" class="plan">Advanced</p>
               <p class="price">$12/mo</p>
-              <input tabindex="-1" type="radio" name="Plan" id="advancedRadio"
-
+              <input type="radio" name="Plan" id="advancedRadio"
+              tabindex="-1"
               >
               <p class="free">2 months free</p>
 
@@ -151,14 +148,13 @@
             <label for="proRadio" class="group"
             role="radio" 
             aria-checked="false"
-            tabindex="-1"
             >
 
               <img src="./assets/images/icon-pro.svg" alt="">
               <p id="pro" class="plan">Pro</p>
               <p class="price">$15/mo</p>
-              <input tabindex="-1" type="radio" name="Plan" id="proRadio"
-
+              <input type="radio" name="Plan" id="proRadio"
+              tabindex="-1"
               >
               <p class="free">2 months free</p>
 
@@ -172,10 +168,9 @@
           >
             <label for="monthRadio"
             role="radio"
-            tabindex="0"
             >Monthly</label>
-            <input tabindex="-1" type="radio" name="Timeplan" id="monthRadio"
-            >
+            <input type="radio" name="Timeplan" id="monthRadio"
+            tabindex="0">
 
             <span class="wrapper">
               <span class="toggle" ></span>
@@ -183,10 +178,9 @@
 
             <label for="yearRadio"
             role="radio"
-            tabindex="-1"
             >Yearly</label>
-            <input tabindex="-1" type="radio" name="Timeplan" id="yearRadio"
-            >
+            <input  type="radio" name="Timeplan" id="yearRadio"
+            tabindex="-1">
 
           </div>
 
@@ -198,39 +192,50 @@
         </div>
 
         <div class="step3 step hidden">
-          <h2>Pick add-ons</h2>
+          <h2 id="step3">Pick add-ons</h2>
           <p>Add-ons help enhance your gaming experience</p>
 
-          <div class="group">
+          <div class="group" 
+          aria-labelledby=""
+          role="radiogroup">
 
-            <label for="onlineCheck" class="pickLabel">
+            <label for="onlineCheck" class="pickLabel"
+            aria-labelledby="online"
+            role="radio"
+            >
               <input type="checkbox" name="pickCheck" id="onlineCheck"
               tabindex="0"
               >
               <div class="wrapper">
-                <h3>Online services</h3>
+                <h3 id="online">Online services</h3>
                 <p>Access to multiplayer games</p>
               </div>
               <div class="price">+$1/mo</div>
             </label>
 
-            <label for="largerCheck" class="pickLabel">
+            <label for="largerCheck" class="pickLabel"
+            aria-labelledby="larger"
+            role="radio"
+            >
               <input type="checkbox" name="pickCheck" id="largerCheck"
               tabindex="-1"
               >
               <div class="wrapper">
-                <h3>Larger storage</h3>
+                <h3 id="larger">Larger storage</h3>
                 <p>Extra 1TB of clod save</p>
               </div>
               <div class="price">+$2/mo</div>
             </label>
 
-            <label for="customizableCheck" class="pickLabel">
+            <label for="customizableCheck" class="pickLabel"
+            aria-labelledby="customizable"
+            role="radio"
+            >
               <input type="checkbox" name="pickCheck" id="customizableCheck"
               tabindex="-1"
               >
               <div class="wrapper">
-                <h3>Customizable profile</h3>
+                <h3 id="customizable">Customizable profile</h3>
                 <p>Custom theme on your profile</p>
               </div>
               <div class="price">+$2/mo</div>
@@ -253,33 +258,21 @@
             
             <div class="wrapper confirm1">
               <div class="title">
-                <p>Arcade (Monthly)</p>
+                <p></p>
                 <button class="changeBtn">Change</button>
               </div>
-              <div class="price">$9/mo</div>
+              <div class="price"></div>
             </div>
             
             <div class="wrapper confirm2">
-              <div class="wrap">
-                <div class="title">
-                  <p>Online service</p>
-                </div>
-                <div class="price">+$1/mo</div>
-              </div>
 
-              <div class="wrap">
-                <div class="title">
-                  <p>Larger Storage</p>
-                </div>
-                <div class="price">+$2/mo</div>
-              </div>
             </div>
 
             <div class="wrapper confirm3">
               <div class="title">
-                <p>Total (per month)</p>
+                <p class="time">Total (per month)</p>
               </div>
-              <div class="price">+$12/mo</div>
+              <div class="price"></div>
             </div>
 
           </div>
@@ -304,6 +297,8 @@
         </div>
 
       </form>
+
+      <p class="notification"></p>
 
     </div>
 

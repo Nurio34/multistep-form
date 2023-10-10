@@ -41,6 +41,7 @@ body#home {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    position: relative;
     
     header {
       position: relative;
@@ -215,12 +216,6 @@ body#home {
             filter: brightness(1.7);
           }
         }
-
-        .notification {
-          background-color: yellow;
-          position: absolute;
-          bottom: 0; right: 0; transform: translateX(1000%);
-        }
       }
 
       .step2 {
@@ -287,6 +282,10 @@ body#home {
   
             input {
               appearance: none;
+
+              &:focus-visible {
+                outline: none;
+              }
             }
           }
         }
@@ -312,8 +311,11 @@ body#home {
             }
           }
           input {
-            appearance: none;
-            position: absolute;
+            // appearance: none;
+            // position: absolute;
+            &:focus-visible {
+              // outline: none;
+            }
           }
 
           .wrapper {
@@ -527,7 +529,11 @@ body#home {
 
 
       }
+    }
 
+    .notification {
+      position: absolute;
+      bottom: 0; right: 0; transform: translateX(1000%);
     }
   }
 }

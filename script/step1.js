@@ -12,8 +12,6 @@ const pass1Btn = document.querySelector(".pass1")
 
 let fullname, email, phone
 
-const notificationEl = step1.querySelector(".notification")
-
 
 
     pass1Btn.addEventListener("click",(e)=>{
@@ -21,7 +19,7 @@ const notificationEl = step1.querySelector(".notification")
         e.preventDefault()
 
         notificationEl.ariaLive = "polite"
-        let message,nameMsg,emailMsg,phoneMsg
+        let nameMsg,emailMsg,phoneMsg
 
         fullname = nameInp.value.trim()
         email = emailInp.value.trim()

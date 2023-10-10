@@ -3,53 +3,47 @@ const step3 = document.querySelector(".step3")
 
 const pickChecks = step3.querySelectorAll("input[type='checkbox']")
 
-let service;
-let totalPickPrice = 0
-let services = [];
-let newArr
+
 
 const pass3Btn = document.querySelector(".pass3")
 
 
 
 //todo: checks with CLİCK ///////////
-pickChecks.forEach(btn=> btn.addEventListener("click",e=>{
-    
-    const checkBtn = btn
-    const isChecked = checkBtn.checked
+    pickChecks.forEach(btn=> btn.addEventListener("click",e=>{
+        
+        const checkBtn = btn
+        const isChecked = checkBtn.checked
 
-    pickPrice = Number(checkBtn.parentElement.querySelector(".price").textContent.slice(2,3).split("/")[0])
-    service = checkBtn.parentElement.querySelector("h3").innerText
-    console.log(isChecked);
+        itemPrice = Number(checkBtn.parentElement.querySelector(".price").textContent.slice(2,3).split("/")[0])
+        service = checkBtn.parentElement.querySelector("h3").innerText
 
-        if(isChecked) {
+            if(isChecked) {
 
-            checkBtn.parentElement.classList.add("selected")
-            totalPickPrice += pickPrice
+                checkBtn.parentElement.classList.add("selected")
+                totalPrice += itemPrice
 
-            if(!services.includes(service)) {
-                services.push(service)
+                if(!services.includes(service)) {
+                    services.push({service,itemPrice})
 
-            }
-
-        } else {
-
-            checkBtn.parentElement.classList.remove("selected")
-            totalPickPrice -= pickPrice
-            newArr = []
-
-            services.filter(item=> {
-                if(item !== service) {
-                    newArr.push(item)
                 }
-                
-            } )
 
-            services = newArr
-        }
+            } else {
 
-            console.log({services});
-}))
+                checkBtn.parentElement.classList.remove("selected")
+                totalPrice -= itemPrice
+
+                newArr = []
+                services.filter(item=> {
+                    if(item.service !== service) {
+                        newArr.push(item)
+                    }
+                })
+                services = newArr
+            }   
+
+            console.log(services);
+    }))
 
 //todo: //////////////////////////////
 
@@ -76,7 +70,7 @@ pickChecks.forEach(btn=> btn.addEventListener("click",e=>{
                 if(e.key === "ArrowDown" || e.key === "ArrowRight") {
                     
                     checkBtn.setAttribute("tabindex","-1")
-                    console.log({checkBtn,lastBtn});
+                    
                     if(checkBtn !== lastBtn) {
                         const nextBtn = checkBtn.parentElement.nextElementSibling.querySelector("input")
 
@@ -84,12 +78,32 @@ pickChecks.forEach(btn=> btn.addEventListener("click",e=>{
                             nextBtn.focus()
 
                     }else {
-                        console.log("ok");
                         firstBtn.setAttribute("tabindex","0")
                         firstBtn.focus()
                     }
                 }
+
+                if(e.key === "ArrowUp" || e.key === "ArrowLeft") {
+                    
+                    checkBtn.setAttribute("tabindex","-1")
+                    
+                    if(checkBtn !== firstBtn) {
+                        const previousBtn = checkBtn.parentElement.previousElementSibling.querySelector("input")
+
+                            previousBtn.setAttribute("tabindex","0")
+                            previousBtn.focus()
+
+                    }else {
+                        lastBtn.setAttribute("tabindex","0")
+                        lastBtn.focus()
+                    }
+                }
             })
+    }))
+
+    pickChecks.forEach(checkBtn => checkBtn.addEventListener("blur",e=> {
+        const label = checkBtn.parentElement
+        label.classList.remove("focus")
     }))
 
 
@@ -99,12 +113,12 @@ pickChecks.forEach(btn=> btn.addEventListener("click",e=>{
 
 pass3Btn.addEventListener("click",e=> {
     e.preventDefault()
-    
-    if(totalPickPrice>0) {
+
         step3.classList.add("hidden")
         step4.classList.remove("hidden")
 
         indicators[2].classList.remove("active")
         indicators[3].classList.add("active")
-    }
+            console.log({services,totalPrice});
+
 })

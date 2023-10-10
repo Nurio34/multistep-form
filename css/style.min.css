@@ -287,6 +287,7 @@ body#home .container {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
 }
 body#home .container header {
   position: relative;
@@ -438,13 +439,6 @@ body#home .container form .step .nextBtn {
 body#home .container form .step .nextBtn:hover, body#home .container form .step .nextBtn:focus {
   filter: brightness(1.7);
 }
-body#home .container form .step .notification {
-  background-color: yellow;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  transform: translateX(1000%);
-}
 body#home .container form .step2 .flex {
   display: flex;
   flex-direction: column;
@@ -500,6 +494,9 @@ body#home .container form .step2 .flex label.group p.free.visible {
 body#home .container form .step2 .flex label.group input {
   appearance: none;
 }
+body#home .container form .step2 .flex label.group input:focus-visible {
+  outline: none;
+}
 body#home .container form .step2 .select-group {
   justify-self: center;
   display: flex;
@@ -517,10 +514,6 @@ body#home .container form .step2 .select-group label.selected {
 body#home .container form .step2 .select-group label:focus {
   outline: 1px solid black;
   outline-offset: 3px;
-}
-body#home .container form .step2 .select-group input {
-  appearance: none;
-  position: absolute;
 }
 body#home .container form .step2 .select-group .wrapper {
   display: inline-block;
@@ -686,6 +679,12 @@ body#home .container form .step5 {
   display: grid;
   justify-items: center;
   padding-block: 4rem;
+}
+body#home .container .notification {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateX(1000%);
 }
 
 button {
