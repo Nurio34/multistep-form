@@ -479,7 +479,8 @@ body#home {
               text-decoration: underline;
               font-weight: var(--fw-2);
 
-              &:hover {
+              &:hover,
+              &:focus {
                 cursor: pointer;
                 color: var(--Purplishblue);
               }

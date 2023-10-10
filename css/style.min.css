@@ -644,7 +644,7 @@ body#home .container form .step4 .group .wrapper.confirm1 .changeBtn {
   text-decoration: underline;
   font-weight: var(--fw-2);
 }
-body#home .container form .step4 .group .wrapper.confirm1 .changeBtn:hover {
+body#home .container form .step4 .group .wrapper.confirm1 .changeBtn:hover, body#home .container form .step4 .group .wrapper.confirm1 .changeBtn:focus {
   cursor: pointer;
   color: var(--Purplishblue);
 }

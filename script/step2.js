@@ -5,13 +5,15 @@ const labels = step2.querySelectorAll("label")
 const planRadios = step2.querySelectorAll("label.group input")
 let plan
 let currentItem
+let planPrice = 1
 
 const selectRadios = step2.querySelectorAll(".select-group input")
 const toggleBtn = step2.querySelector(".toggle")
 const toggleWrapper = step2.querySelector(".select-group .wrapper")
 let timeplan
-let price = 0 
+let parameter = 1
 
+let totalPlanPrice = 0
 
 const pass2Btn = document.querySelector(".pass2")
 
@@ -26,6 +28,9 @@ const pass2Btn = document.querySelector(".pass2")
             currentItem.classList.add("selected")
         
         plan = currentItem.querySelector(".plan").innerText
+        planPrice = +currentItem.querySelector(".price").textContent.slice(1,3).split("/")[0]
+
+        totalPlanPrice = planPrice * parameter
     }))
 
 //todo: ////////////////////////////////////////////////////////
@@ -98,16 +103,18 @@ const pass2Btn = document.querySelector(".pass2")
         if(radioBtn.id === "monthRadio") {
             toggleBtn.classList.remove("yearly")
             step2.querySelectorAll(".free").forEach(el => el.classList.remove("visible"))
-            price = +currentItem.querySelector(".price").textContent.slice(1,3).split("/")[0]
-
+            parameter = 1
+            message = ""
 
         }else {
             toggleBtn.classList.add("yearly")
             step2.querySelectorAll(".free").forEach(el => el.classList.add("visible"))
-            price = +currentItem.querySelector(".price").textContent.slice(1,3).split("/")[0] * 10
-
+            parameter = 10
+            message = "2 months free"
         }
     
+        totalPlanPrice = planPrice * parameter
+        notificationEl.innerHTML = message
     }))
 
 //todo: ////////////////////////////////////////////////////////
@@ -130,7 +137,9 @@ const pass2Btn = document.querySelector(".pass2")
             input = toggleBtn.parentNode.previousElementSibling
                 input.checked= true
                 timeplan = input.previousElementSibling.innerText
-                price = +currentItem.querySelector(".price").textContent.slice(1,3).split("/")[0]
+                parameter = 1
+
+                message = ""
 
         }else {
                 toggleBtn.classList.add("yearly")
@@ -139,8 +148,14 @@ const pass2Btn = document.querySelector(".pass2")
             input = toggleBtn.parentNode.nextElementSibling.nextElementSibling
                 input.checked = true
                 timeplan = input.previousElementSibling.innerText
-                price = +currentItem.querySelector(".price").textContent.slice(1,3).split("/")[0] * 10
+                parameter = 10
+
+                message = "2 months free"
         }
+
+        totalPlanPrice = planPrice * parameter
+
+        notificationEl.innerHTML = message
 
         //! NEW SKILSS UNLOCKED
 
@@ -213,7 +228,7 @@ const pass2Btn = document.querySelector(".pass2")
         e.preventDefault()
         let planMsg, annualPlanMsg
         
-        if(!price) {
+        if(!totalPlanPrice) {
             planMsg = "You forgot to chose a plan"
             annualPlanMsg = ""
         }
@@ -222,7 +237,7 @@ const pass2Btn = document.querySelector(".pass2")
             annualPlanMsg = "You forgot to chose an annual plan"
         }
         
-        if(price && timeplan) {
+        if(totalPlanPrice && timeplan) {
             planMsg = ""
             annualPlanMsg = ""
 
@@ -232,7 +247,7 @@ const pass2Btn = document.querySelector(".pass2")
             indicators[1].classList.remove("active")
             indicators[2].classList.add("active")
             
-                console.log({plan,price,timeplan});
+                console.log({plan,totalPlanPrice,timeplan});
         } 
         message = planMsg + annualPlanMsg
         notificationEl.innerHTML = message
